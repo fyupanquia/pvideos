@@ -1,21 +1,49 @@
-import React from'react'
+import React, { useEffect, useState } from'react'
+import { connect } from 'react-redux'
+import { getVideoSource } from '../actions'
+import { Redirect } from 'react-router-dom'
 import '../assets/styles/components/Player.scss'
 
 const Player = props => {
-    const { id } = props.match.params
+    const { id } = props.match.params;
+    //const [ loading, setLoading ] = useState(false)
+    //const hasPlaying =  Object.keys(props.playing).length > 0;
+    //const NotFound   = typeof playing === false;
 
-    return (
-        <div className="Player">
-            <video controls={true} autoPlay>
-                <source src="" type="video/mp4" />
-            </video>
-            <div className="Player-back">
-                <button type="button" onClick={ () => props.history.goBack() }>
-                    Regresar
-                </button>
-            </div>
-        </div>
-    )
+    useEffect(()=> {
+        if (props.playing===null) {
+            props.getVideoSource(id);
+        }
+    }, [props.playing]);
+
+    return  props.playing ==null ? 
+            <h2>Loading...</h2> :
+            (
+                props.playing ? (
+                    <div className="Player">
+                        <video controls={true} autoPlay>
+                            <source src={ props.playing.source } type="video/mp4" />
+                        </video>
+                        <div className="Player-back">
+                            <button type="button" onClick={ () => props.history.goBack() }>
+                                Regresar
+                            </button>
+                        </div>
+                    </div>
+                ) : <Redirect to="/404/" />
+            );
+
+            // <Redirect to="/404/" />
 }
 
-export default Player
+const mapStateToProps = state => {
+    return {
+        playing : state.playing
+    }
+}
+
+const mapDispatchToProps = {
+    getVideoSource
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player)

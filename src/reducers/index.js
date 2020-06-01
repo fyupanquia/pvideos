@@ -1,32 +1,47 @@
+
+
 const reducer = (state, action) => {
+
+	var defaultState = {
+		playing: null,
+		...state
+	}
+	
 	switch (action.type) {
 		case 'SET_FAVOURITE': 
 			return {
-				...state,
-				myList: [...state.myList, action.payload]
+				...defaultState,
+				myList: [...defaultState.myList, action.payload]
 			}
 		case 'DELETE_FAVOURITE': 
 			return {
-				...state,
-				myList: state.myList.filter(item => item.id!==action.payload)
+				...defaultState,
+				myList: defaultState.myList.filter(item => item.id!==action.payload)
 			}
 		case 'LOGIN_REQUEST': 
 			return {
-				...state,
+				...defaultState,
 				user: action.payload
 			}
 		case 'LOGOUT_REQUEST': 
 			return {
-				...state,
+				...defaultState,
 				user: action.payload
 			}
 		case 'REGISTER_REQUEST': 
 			return {
-				...state,
+				...defaultState,
 				user: action.payload
 			}
+		case 'GET_VIDEO_SOURCE': 
+			return {
+				...defaultState,
+				playing: defaultState.trends.find(item => item.id === Number(action.payload)) ||
+				defaultState.original.find(item => item.id === Number(action.payload)) ||
+				false
+			}
 		default :
-			return state
+			return defaultState
 	}
 }
 
