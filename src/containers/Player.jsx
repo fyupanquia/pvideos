@@ -10,11 +10,18 @@ const Player = props => {
     //const hasPlaying =  Object.keys(props.playing).length > 0;
     //const NotFound   = typeof playing === false;
 
+
     useEffect(()=> {
-        if (props.playing===null) {
+        if (props.playing===null || (props.playing!=null && props.playing.id!=id) ) {
             props.getVideoSource(id);
+        } else {
+            //if (props.playing.id!=id) {
+            //    props.playing = null;
+            //}
         }
     }, [props.playing]);
+
+    console.log(props.playing)
 
     return  props.playing ==null ? 
             <h2>Loading...</h2> :

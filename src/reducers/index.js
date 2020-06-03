@@ -37,7 +37,7 @@ const reducer = (state, action) => {
 			return {
 				...defaultState,
 				playing: defaultState.trends.find(item => item.id === Number(action.payload)) ||
-				defaultState.original.find(item => item.id === Number(action.payload)) ||
+				defaultState.originals.find(item => item.id === Number(action.payload)) ||
 				false
 			}
 		default :
