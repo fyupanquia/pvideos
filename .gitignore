@@ -81,3 +81,5 @@ dist/
 src/server/public
 
 package-lock.json
+
+.next
