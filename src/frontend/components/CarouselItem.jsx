@@ -30,9 +30,9 @@ const CarouselItem = (props) => {
             <img className='carousel-item__details--img' src={playIcon} alt='Play' />
           </Link>
           {
-            isList
-              ? <img className='carousel-item__details--img' src={removeIcon} alt='Remove' onClick={handleDeleteFavourite} />
-              : <img className='carousel-item__details--img' src={plusIcon} alt='Add' onClick={handleSetFavourite} />
+            isList ?
+              <img className='carousel-item__details--img' src={removeIcon} alt='Remove' onClick={handleDeleteFavourite} /> :
+              <img className='carousel-item__details--img' src={plusIcon} alt='Add' onClick={handleSetFavourite} />
           }
         </div>
         <p className='carousel-item__details--title'>{title}</p>

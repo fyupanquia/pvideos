@@ -8,7 +8,8 @@
     "build": "webpack-cli --config webpack.config.js",
     "start": "webpack-dev-server --open --mode development",
     "start:dev": "nodemon src/server",
-    "lint-fix": "standard --fix"
+    "lint-fix": "standard --fix",
+    "lintv2-fix": "eslint src/frontend/ --ext .js --ext .jsx --fix"
   },
   "keywords": [],
   "author": "",
@@ -17,9 +18,9 @@
     "@babel/register": "^7.10.3",
     "asset-require-hook": "^1.2.0",
     "babel-eslint": "^10.1.0",
+    "classnames": "^2.2.6",
     "compression-webpack-plugin": "^4.0.0",
     "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jsx-a11y": "^6.3.1",
@@ -48,20 +49,21 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "classnames": "^2.2.6",
     "css-loader": "^3.0.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^4.0.2",
     "file-loader": "^4.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
+    "now": "^19.0.1",
     "sass-loader": "^7.3.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
-    "webpack-hot-middleware": "^2.25.0",
-    "now": "^19.0.1"
+    "webpack-hot-middleware": "^2.25.0"
   }
 }

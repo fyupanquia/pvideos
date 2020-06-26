@@ -23,9 +23,9 @@ const Header = (props) => {
       <div className='header__menu'>
         <div className='header__menu--profile'>
           {
-            hasUser
-              ? <img src={gravatar(user.email)} alt={user.email} />
-              : <img src={userIcon} alt='' />
+            hasUser ?
+              <img src={gravatar(user.email)} alt={user.email} /> :
+              <img src={userIcon} alt='' />
           }
           <p>Perfil</p>
         </div>
@@ -35,8 +35,8 @@ const Header = (props) => {
               <>
                 <li><Link to='/logout' onClick={handleLogout}>Logout</Link></li>
               </>
-            )
-              : <li><Link to='/login'>Login</Link></li>
+            ) :
+              <li><Link to='/login'>Login</Link></li>
           }
         </ul>
       </div>

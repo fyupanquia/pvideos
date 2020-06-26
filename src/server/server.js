@@ -15,7 +15,7 @@ import serverRoutes from '../frontend/routers/serverRoutes'
 import reducer from '../frontend/reducers'
 import initialState from '../frontend/initialState'
 import Layout from '../frontend/components/Layout'
-import getManifest from './getManifest';
+import getManifest from './getManifest'
 
 dotenv.config()
 
@@ -34,9 +34,9 @@ if (ENV === 'development') {
   app.use(webpackHotMiddleware(compiler))
 } else {
   app.use((req, res, next) => {
-    if (!req.hashManifest) req.hashManifest = getManifest();
-    next();
-  });
+    if (!req.hashManifest) req.hashManifest = getManifest()
+    next()
+  })
   app.use(express.static(`${__dirname}/public`))
   app.use(helmet())
   app.use(helmet.permittedCrossDomainPolicies())
@@ -44,8 +44,9 @@ if (ENV === 'development') {
 }
 
 const setResponse = (html, preloadedState, manifest) => {
-  const mainStyles = manifest ? manifest['main.css'] : 'assets/app.css';
-  const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js';
+  const mainStyles = manifest ? manifest['main.css'] : 'assets/app.css'
+  const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js'
+  const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendor.js'
 
   return (`
   <!DOCTYPE html>
@@ -60,9 +61,10 @@ const setResponse = (html, preloadedState, manifest) => {
         window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
       </script>
       <script src="${mainBuild}" type="text/javascript"></script>
+      <script src="${vendorBuild}" type="text/javascript"></script>
     </body>
   </html>
-  `);
+  `)
 }
 
 const renderApp = (req, res) => {
@@ -76,7 +78,7 @@ const renderApp = (req, res) => {
     </Provider>
   )
   res.removeHeader('x-powered-by')
-  res.send(setResponse(html, preloadedState, req.hashManifest));
+  res.send(setResponse(html, preloadedState, req.hashManifest))
 }
 
 app.get('*', renderApp)
