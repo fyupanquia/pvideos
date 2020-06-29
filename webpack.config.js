@@ -41,7 +41,7 @@ module.exports = {
           priority: 1,
           filename: isDev ? 'assets/vendor.js' : 'assets/vendor-[hash].js',
           enforce: true,
-          test(module, chunks) {
+          test (module, chunks) {
             const name = module.nameForCondition && module.nameForCondition()
             return chunks.some(
               chunk => chunk.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name)
@@ -57,7 +57,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
+        loader: 'eslint-loader'
       },
       {
         test: /\.(js|jsx)$/,
@@ -94,9 +94,9 @@ module.exports = {
   },
   plugins: [
     isDev ? new webpack.HotModuleReplacementPlugin() : () => {},
-    isDev ?
-      () => {} :
-      new CompressionWebpackPlugin({
+    isDev
+      ? () => {}
+      : new CompressionWebpackPlugin({
         test: /\.js$|\.css$/,
         filename: '[path].gz'
       }),

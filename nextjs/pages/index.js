@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Landing = () => {
-  return <div>Hola Next Js</div>;
-};
+  return <div>Hola Next Js</div>
+}
 
-export default Landing;
+export default Landing

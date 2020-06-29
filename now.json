@@ -1,5 +1,11 @@
 {
   "version": 2,
   "name": "pvideos",
-  "builds": [{ "src": "package.json", "use": "@now/static-build", "config":{"distDir":"dist"} }]
+  "builds": [{ "src": "package.json", "use": "@now/static-build", "config":{"distDir":"dist"} }],
+  "env": {
+    "ENV": "production",
+    "PORT": "3000",
+    "API_URL": "https://movies-api.fyupanquia.vercel.app",
+    "API_KEY_TOKEN": "@pvideos-api-key-token"
+  }
 }

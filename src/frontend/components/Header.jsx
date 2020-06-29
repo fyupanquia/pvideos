@@ -14,8 +14,12 @@ const Header = (props) => {
   // const hasUser = user ? true : false;
 
   const handleLogout = (event) => {
-    event.preventDefault()
+    document.cookie = 'email='
+    document.cookie = 'name='
+    document.cookie = 'id='
+    document.cookie = 'token='
     props.logoutRequest({})
+    window.location.href = '/login'
   }
   return (
     <header className='header'>
