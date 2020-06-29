@@ -1,7 +1,12 @@
 {
   "version": 2,
   "name": "pvideos",
-  "builds": [{ "src": "package.json", "use": "@now/static-build", "config":{"distDir":"dist"} }],
+  "builds": [
+    {
+      "src": "src/server/index.js",
+      "use": "@now/node-server"
+    }
+  ],
   "env": {
     "ENV": "production",
     "PORT": "3000",
