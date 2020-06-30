@@ -9,11 +9,11 @@ import plusIcon from '../assets/static/plus-icon.png'
 import removeIcon from '../assets/static/remove-icon.png'
 
 const CarouselItem = (props) => {
-  const { id, cover, title, year, contentRating, duration, isList } = props
+  const { _id, id, cover, title, year, contentRating, duration, isList } = props
 
   const handleSetFavourite = () => {
     props.setFavourite({
-      id, cover, title, year, contentRating, duration
+      id: _id, cover, title, year, contentRating, duration
     })
   }
 

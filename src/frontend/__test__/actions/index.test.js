@@ -1,25 +1,25 @@
-import { setFavourite, loginRequest } from '../../actions';
-import movieMock from '../../__mocks__/movieMock';
+import { setFavourite, loginRequest } from '../../actions'
+import movieMock from '../../__mocks__/movieMock'
 
 describe('Actions', () => {
   test('set favorite', () => {
-    const payload = movieMock;
+    const payload = movieMock
     const expectedAction = {
       type: 'SET_FAVOURITE',
-      payload,
-    };
-    expect(setFavourite(payload)).toEqual(expectedAction);
-  });
+      payload
+    }
+    expect(setFavourite(payload)).toEqual(expectedAction)
+  })
 
   test('Login', () => {
     const payload = {
       email: 'test@test.com',
-      password: 'password',
-    };
+      password: 'password'
+    }
     const expectedAction = {
       type: 'LOGIN_REQUEST',
-      payload,
-    };
-    expect(loginRequest(payload)).toEqual(expectedAction);
-  });
-});
+      payload
+    }
+    expect(loginRequest(payload)).toEqual(expectedAction)
+  })
+})

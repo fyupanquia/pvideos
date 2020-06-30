@@ -10,34 +10,33 @@ import '../assets/styles/App.scss'
 
 const Home = ({ myList, trends, originals }) => {
   // const initialState = useInitialState(API);
-
   return (
-    <>
+    <React.Fragment>
       <Search isHome />
       {myList.length > 0 && (
-        <Categories title='Mi Lista'>
+        <Categories key='my-list-categories' title='Mi Lista'>
           <Carousel key='my-list-carousel'>
             {myList.map(item => (
-              <CarouselItem key={item.id} {...item} isList />
+              <CarouselItem key={`${item._id}my-list`} {...item} isList />
             ))}
           </Carousel>
         </Categories>
       )}
-      <Categories title='Tendencias'>
+      <Categories key='trends-categories' title='Tendencias'>
         <Carousel key='trends-carousel'>
           {trends.map(item => (
-            <CarouselItem key={item.id} {...item} />
+            <CarouselItem key={`${item._id}trends`} {...item} />
           ))}
         </Carousel>
       </Categories>
-      <Categories title='Originales de Platzi Video'>
+      <Categories key='originals-categories' title='Originales de Platzi Video'>
         <Carousel key='originals-carousel'>
           {originals.map(item => (
-            <CarouselItem key={item.id} {...item} />
+            <CarouselItem key={`${item._id}originals`} {...item} />
           ))}
         </Carousel>
       </Categories>
-    </>
+    </React.Fragment>
   )
 }
 const mapStateToProps = (state) => {

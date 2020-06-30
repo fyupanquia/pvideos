@@ -1,6 +1,12 @@
 {
   "version": 2,
   "name": "pvideos",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/server/index.js"
+    }
+  ],
   "builds": [
     {
       "src": "src/server/index.js",
@@ -8,7 +14,7 @@
     }
   ],
   "env": {
-    "ENV": "production",
+    "ENV": "development",
     "PORT": "3000",
     "API_URL": "https://movies-api.fyupanquia.vercel.app",
     "API_KEY_TOKEN": "@pvideos-api-key-token"

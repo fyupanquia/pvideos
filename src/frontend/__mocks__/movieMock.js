@@ -10,7 +10,7 @@ const movieMock = {
   cover: 'http://dummyimage.com/800x600.png/99118E/ffffff',
   description: 'Vestibulum ac est lacinia nisi venenatis tristique',
   source:
-    'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
-};
+    'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4'
+}
 
-module.exports = movieMock;
+module.exports = movieMock

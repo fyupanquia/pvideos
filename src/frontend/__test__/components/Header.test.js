@@ -1,8 +1,8 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { create } from 'react-test-renderer';
-import Header from '../../components/Header';
-import ProviderMock from '../../__mocks__/ProviderMock';
+import React from 'react'
+import { mount } from 'enzyme'
+import { create } from 'react-test-renderer'
+import Header from '../../components/Header'
+import ProviderMock from '../../__mocks__/ProviderMock'
 
 describe('<Header />', () => {
   test('Header logo image', () => {
@@ -10,17 +10,16 @@ describe('<Header />', () => {
       <ProviderMock>
         <Header />
       </ProviderMock>
-    );
-    expect(header.find('.header__img')).toHaveLength(1);
-  });
+    )
+    expect(header.find('.header__img')).toHaveLength(1)
+  })
 
   test('Header snapshot', () => {
     const header = create(
       <ProviderMock>
         <Header />
       </ProviderMock>
-    );
-    expect(header.toJSON()).toMatchSnapshot();
+    )
+    expect(header.toJSON()).toMatchSnapshot()
   })
-
-});
+})
